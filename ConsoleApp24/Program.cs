@@ -14,6 +14,19 @@ namespace ConsoleApp24
         {
             Loki.Kirjoita("Sovellus käynnistyi");
 
+            DateTime pvm = DateTime.Today;
+            DateTime viikkoEteenpäin = pvm.AddDays(-7);
+
+            DateTime alkuAika = DateTime.Now;
+            for (int i = 0; i < 100; i++)
+            {
+                Loki.Kirjoita("Lokimerkintä " + i);
+            }
+            DateTime loppuAika = DateTime.Now;
+            TimeSpan kesto = loppuAika - alkuAika;
+            Console.WriteLine(kesto.TotalMilliseconds);
+
+            /*
             while (true)
             {
                 Console.WriteLine("Syötä päivämäärä (pp.kk.vvvv):");
@@ -34,6 +47,8 @@ namespace ConsoleApp24
                     Console.WriteLine("Päivämäärä ei ollut kelvollinen.");
                 }
             }
+            */
+
             /*
             DateTime pvm = DateTime.Parse(syöte);
             Console.WriteLine(pvm);
