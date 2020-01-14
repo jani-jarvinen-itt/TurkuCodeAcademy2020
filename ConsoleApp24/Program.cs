@@ -14,25 +14,14 @@ namespace ConsoleApp24
     {
         static void Main(string[] args)
         {
-            Loki.Kirjoita("Sovellus käynnistyi");
-
-            while (true)
-            {
-                Console.WriteLine("Anna sähköpostiosoite:");
-                string email = Console.ReadLine();
-                bool osoiteOK = TarkistaSähköpostiosoite(email);
-                if (osoiteOK)
-                {
-                    Console.WriteLine("Osoite oli OK!");
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Osoite ei ollut kelvollinen sähköpostiosoite.");
-                }
-            }
+            int luku = LueLuku();
 
 
+
+            KysySähköpostiosoite();
+            Loki.KirjoitaTiedostoon("Sovellus käynnistyi");
+
+            #region Kommentoitua vanhaa koodia
             /*
             DateTime pvm = DateTime.Today;
             DateTime viikkoEteenpäin = pvm.AddDays(-7);
@@ -97,10 +86,10 @@ namespace ConsoleApp24
             //KeskiarvonLaskenta();
             //SähköpostienLuku();
             //Lukulista();
-
+            #endregion
 
             Console.ReadLine();
-            Loki.Kirjoita("Sovelluksen suoritus päättyi");
+            Loki.KirjoitaTiedostoon("Sovelluksen suoritus päättyi");
 
             /*
             int a = 123;
@@ -112,12 +101,37 @@ namespace ConsoleApp24
 
             string s = "abcd";
             string t = "abcd";
-
             if (s == t)
             {
 
             }
             */
+        }
+
+        private static int LueLuku()
+        {
+            Console.WriteLine("Anna luku:");
+            string syöte = Console.ReadLine();
+            return int.Parse(syöte);
+        }
+
+        private static void KysySähköpostiosoite()
+        {
+            while (true)
+            {
+                Console.WriteLine("Anna sähköpostiosoite:");
+                string email = Console.ReadLine();
+                bool osoiteOK = TarkistaSähköpostiosoite(email);
+                if (osoiteOK)
+                {
+                    Console.WriteLine("Osoite oli OK!");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Osoite ei ollut kelvollinen sähköpostiosoite.");
+                }
+            }
         }
 
         private static bool TarkistaSähköpostiosoite(string email)
@@ -163,7 +177,7 @@ namespace ConsoleApp24
 
         private static void SähköpostienLuku()
         {
-            Loki.Kirjoita("Aloitetaan sähköpostien käsittely");
+            Loki.KirjoitaTiedostoon("Aloitetaan sähköpostien käsittely");
 
             Dictionary<string, string> sähköpostit = new Dictionary<string, string>();
 
@@ -195,6 +209,8 @@ namespace ConsoleApp24
         /// </summary>
         private static void KeskiarvonLaskenta()
         {
+            // uusi kommentti
+
             string polku = @"C:\Academy\Turku\DotNet\Lukuja.txt";
             string[] rivit = File.ReadAllLines(polku);
             int summa = 0;

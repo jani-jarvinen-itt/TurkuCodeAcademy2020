@@ -9,7 +9,7 @@ namespace ConsoleApp24
 {
     public class Loki
     {
-        public static void Kirjoita(string viesti)
+        public static void KirjoitaTiedostoon(string viesti)
         {
             string polku = @"C:\Temp\Sovellus.log";
             string merkintä = $"{DateTime.Now}: {viesti}\r\n";
