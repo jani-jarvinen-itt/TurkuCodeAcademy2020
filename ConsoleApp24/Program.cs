@@ -18,10 +18,15 @@ namespace ConsoleApp24
             {
                 Console.WriteLine("Syötä päivämäärä (pp.kk.vvvv):");
                 string syöte = Console.ReadLine();
-                bool onnistui = DateTime.TryParse(syöte, out DateTime pvm);
+
+                CultureInfo enUs = new CultureInfo("en-US");
+
+                bool onnistui = DateTime.TryParse(
+                    syöte, enUs, DateTimeStyles.AssumeLocal, out DateTime pvm);
                 if (onnistui)
                 {
-                    Console.WriteLine(pvm);
+                    CultureInfo fiFi = new CultureInfo("fi-FI");
+                    Console.WriteLine(pvm.ToString(fiFi));
                     break;
                 }
                 else
