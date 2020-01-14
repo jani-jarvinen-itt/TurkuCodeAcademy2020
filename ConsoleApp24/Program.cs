@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace ConsoleApp24
 {
@@ -14,6 +15,24 @@ namespace ConsoleApp24
         {
             Loki.Kirjoita("Sovellus käynnistyi");
 
+            while (true)
+            {
+                Console.WriteLine("Anna sähköpostiosoite:");
+                string email = Console.ReadLine();
+                bool osoiteOK = TarkistaSähköpostiosoite(email);
+                if (osoiteOK)
+                {
+                    Console.WriteLine("Osoite oli OK!");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Osoite ei ollut kelvollinen sähköpostiosoite.");
+                }
+            }
+
+
+            /*
             DateTime pvm = DateTime.Today;
             DateTime viikkoEteenpäin = pvm.AddDays(-7);
 
@@ -25,6 +44,7 @@ namespace ConsoleApp24
             DateTime loppuAika = DateTime.Now;
             TimeSpan kesto = loppuAika - alkuAika;
             Console.WriteLine(kesto.TotalMilliseconds);
+            */
 
             /*
             while (true)
@@ -97,6 +117,13 @@ namespace ConsoleApp24
 
             }
             */
+        }
+
+        private static bool TarkistaSähköpostiosoite(string email)
+        {
+            Regex regex = new Regex("[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}");
+            bool tulos = regex.IsMatch(email);
+            return tulos;
         }
 
         private static void Lukulista()
