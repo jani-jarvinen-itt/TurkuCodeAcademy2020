@@ -14,6 +14,27 @@ namespace ConsoleApp24
         {
             Loki.Kirjoita("Sovellus käynnistyi");
 
+            while (true)
+            {
+                Console.WriteLine("Syötä päivämäärä (pp.kk.vvvv):");
+                string syöte = Console.ReadLine();
+                bool onnistui = DateTime.TryParse(syöte, out DateTime pvm);
+                if (onnistui)
+                {
+                    Console.WriteLine(pvm);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Päivämäärä ei ollut kelvollinen.");
+                }
+            }
+            /*
+            DateTime pvm = DateTime.Parse(syöte);
+            Console.WriteLine(pvm);
+            */
+
+            /*
             DateTime pvm = DateTime.Today;
             Console.WriteLine(pvm.ToString("d.M.yyyy"));
             DateTime nyt = DateTime.Now;
@@ -27,7 +48,7 @@ namespace ConsoleApp24
             Console.WriteLine(nyt.ToString(enUs));
             Console.WriteLine(nyt.ToString(fiFi));
             Console.WriteLine(nyt.ToString(fr));
-
+            */
 
             //Console.WriteLine("Moikka!");
             //LaskeLukuja();
