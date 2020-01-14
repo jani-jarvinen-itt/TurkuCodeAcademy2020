@@ -1,0 +1,7 @@
+C:\Users\jani.jarvinen\source\repos\ConsoleApp24\ConsoleApp24\bin\Debug\ConsoleApp24.exe.config
+C:\Users\jani.jarvinen\source\repos\ConsoleApp24\ConsoleApp24\bin\Debug\ConsoleApp24.exe
+C:\Users\jani.jarvinen\source\repos\ConsoleApp24\ConsoleApp24\bin\Debug\ConsoleApp24.pdb
+C:\Users\jani.jarvinen\source\repos\ConsoleApp24\ConsoleApp24\obj\Debug\ConsoleApp24.csprojAssemblyReference.cache
+C:\Users\jani.jarvinen\source\repos\ConsoleApp24\ConsoleApp24\obj\Debug\ConsoleApp24.exe
+C:\Users\jani.jarvinen\source\repos\ConsoleApp24\ConsoleApp24\obj\Debug\ConsoleApp24.pdb
+C:\Users\jani.jarvinen\source\repos\ConsoleApp24\ConsoleApp24\bin\Debug\ConsoleApp24.xml

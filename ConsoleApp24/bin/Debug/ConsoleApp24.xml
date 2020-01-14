@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ConsoleApp24</name>
+    </assembly>
+    <members>
+        <member name="M:ConsoleApp24.Program.KeskiarvonLaskenta">
+            <summary>
+            Lukee tekstitiedoston ja laskee tiedoston lukujen keskiarvon.
+            </summary>
+        </member>
+    </members>
+</doc>
