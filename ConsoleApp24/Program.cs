@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Net.Mail;
 
 namespace ConsoleApp24
 {
@@ -121,9 +122,21 @@ namespace ConsoleApp24
 
         private static bool TarkistaSähköpostiosoite(string email)
         {
+            /*
             Regex regex = new Regex("[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}");
             bool tulos = regex.IsMatch(email);
             return tulos;
+            */
+
+            try
+            {
+                MailAddress osoite = new MailAddress(email);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private static void Lukulista()
