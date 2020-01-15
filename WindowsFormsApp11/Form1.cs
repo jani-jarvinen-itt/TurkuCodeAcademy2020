@@ -45,8 +45,12 @@ namespace WindowsFormsApp11
         private void button3_Click(object sender, EventArgs e)
         {
             NorthwindEntities entities = new NorthwindEntities();
+            string maa = maaTextBox.Text.Trim();
 
-            List<Customers> asiakkaat = entities.Customers.ToList();
+            List<Customers> asiakkaat = (from c in entities.Customers
+                                         where c.Country == maa
+                                         orderby c.CompanyName
+                                         select c).ToList();
 
             dataGridView1.DataSource = asiakkaat;
         }
