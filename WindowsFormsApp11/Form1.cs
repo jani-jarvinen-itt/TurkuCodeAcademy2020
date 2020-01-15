@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp11.Models;
 
 namespace WindowsFormsApp11
 {
@@ -39,6 +40,15 @@ namespace WindowsFormsApp11
         private void button1_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            NorthwindEntities entities = new NorthwindEntities();
+
+            List<Customers> asiakkaat = entities.Customers.ToList();
+
+            dataGridView1.DataSource = asiakkaat;
         }
     }
 }
