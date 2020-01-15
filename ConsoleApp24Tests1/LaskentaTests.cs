@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace ConsoleApp24.Tests
 {
@@ -14,21 +15,37 @@ namespace ConsoleApp24.Tests
         [TestMethod()]
         public void SummaTest()
         {
-            int a = -1;
-            int b = -2;
+            int[] a = { -2, -1, 0, 1, 2, 3, -1, 1 };
+            int[] b = { -200, -100, 0, 100, 200, 300, 1, -1 };
 
-            try
+            for (int indeksi = 0; indeksi < a.Length; indeksi++)
             {
-                Laskenta l = new Laskenta();
-                int summa = l.Summa(a, b);
+                int luku1 = a[indeksi];
+                int luku2 = b[indeksi];
 
-                Assert.Fail();
-            }
-            catch (Exception ex)
-            {
-                if (!(ex is ArgumentOutOfRangeException))
+                Debug.WriteLine($"Testitapaus {indeksi}: luvut = {luku1}, {luku2}.");
+
+                try
                 {
-                    Assert.Fail();
+                    Laskenta l = new Laskenta();
+                    int summa = l.Summa(luku1, luku2);
+
+                    if ((luku1 < 0) || (luku2 < 0))
+                    {
+                        Assert.Fail();
+                    }
+                    else
+                    {
+                        int odotettu = luku1 + luku2;
+                        Assert.AreEqual(odotettu, summa);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (!(ex is ArgumentOutOfRangeException))
+                    {
+                        Assert.Fail();
+                    }
                 }
             }
         }
