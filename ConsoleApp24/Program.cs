@@ -117,6 +117,12 @@ namespace ConsoleApp24
 
         private static void LinqTesti2()
         {
+            /*
+            Asiakas a = new Asiakas();
+            a.UusiMetodi();
+            AsiakasLaajennus.UusiMetodi(a);
+            */
+
             List<Asiakas> asiakkaat = new List<Asiakas>()
             {
                 new Asiakas()

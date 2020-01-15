@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asiakas.cs" />
+    <Compile Include="AsiakasLaajennus.cs" />
     <Compile Include="JsonData.cs" />
     <Compile Include="Loki.cs" />
     <Compile Include="Program.cs" />
