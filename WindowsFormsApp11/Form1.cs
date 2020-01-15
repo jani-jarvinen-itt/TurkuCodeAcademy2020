@@ -30,7 +30,7 @@ namespace WindowsFormsApp11
         private void button2_Click(object sender, EventArgs e)
         {
             string nimi = nimiTextBox.Text;
-            string email = sähköpostiTextBox.Text;
+            string email = sähköpostiTextBox.Text.ToLower();
 
             string data = $"{nimi}\r\n{email}\r\n";
             File.WriteAllText(@"C:\Temp\Data.txt", data);
