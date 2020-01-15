@@ -162,6 +162,7 @@ namespace ConsoleApp24
         private static void TestaaLinqKieltä()
         {
             int[] luvut = { 3, 7, 11, 8, 2, 4, 5, 10, 3, 2, 6, 1 };
+            int summa = luvut.Sum();
 
             /*
             // perinteinen tapa
