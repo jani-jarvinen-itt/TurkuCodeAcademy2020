@@ -35,5 +35,10 @@ namespace WindowsFormsApp11
             string data = $"{nimi}\r\n{email}\r\n";
             File.WriteAllText(@"C:\Temp\Data.txt", data);
         }
+
+        private void button1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }
