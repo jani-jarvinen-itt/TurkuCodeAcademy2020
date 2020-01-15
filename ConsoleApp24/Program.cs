@@ -15,6 +15,7 @@ namespace ConsoleApp24
         static void Main(string[] args)
         {
             TestaaLinqKieltä();
+            LinqTesti2();
 
 
 
@@ -112,6 +113,44 @@ namespace ConsoleApp24
 
             }
             */
+        }
+
+        private static void LinqTesti2()
+        {
+            List<Asiakas> asiakkaat = new List<Asiakas>()
+            {
+                new Asiakas()
+                {
+                    AsiakasId = 100,
+                    Nimi = "Yritys Oy",
+                    Yhteyshenkilö = "Antti Asiakas"
+                },
+                new Asiakas()
+                {
+                    AsiakasId = 101,
+                    Nimi = "Toinen firma Oy",
+                    Yhteyshenkilö = "K. Rosberg"
+                },
+                new Asiakas()
+                {
+                    AsiakasId = 102,
+                    Nimi = "Kolmas Oy",
+                    Yhteyshenkilö = "Maija Möttönen"
+                },
+            };
+
+            // LINQ:n metodisyntaksi
+            var kysely = asiakkaat.Where(a => a.AsiakasId == 101).AsQueryable();
+
+            kysely = kysely.Where(a => a.Yhteyshenkilö.StartsWith("Antti"));
+
+            var tulokset = kysely.ToList();
+
+            // tulokset.ForEach(a => Console.WriteLine(a.Nimi));
+            foreach (var asiakas in kysely)
+            {
+                Console.WriteLine(asiakas.Nimi);
+            }
         }
 
         private static void TestaaLinqKieltä()
