@@ -14,12 +14,18 @@ namespace ConsoleApp24
     {
         static void Main(string[] args)
         {
+            TestaaLinqKieltä();
+
+
+
+            /*
             int luku = LueLuku();
 
 
 
             KysySähköpostiosoite();
             Loki.KirjoitaTiedostoon("Sovellus käynnistyi");
+            */
 
             #region Kommentoitua vanhaa koodia
             /*
@@ -106,6 +112,38 @@ namespace ConsoleApp24
 
             }
             */
+        }
+
+        private static void TestaaLinqKieltä()
+        {
+            int[] luvut = { 3, 7, 11, 8, 2, 4, 5, 10, 3, 2, 6, 1 };
+
+            /*
+            // perinteinen tapa
+            List<int> tulokset = new List<int>();
+            foreach (int luku in luvut)
+            {
+                if (luku > 5)
+                {
+                    tulokset.Add(luku);
+                }
+            }
+            tulokset.Sort();
+            foreach (int luku in tulokset)
+            {
+                Console.WriteLine(luku);
+            }
+            */
+
+            // LINQ = Language Integrated Query
+            List<int> tulokset = (from l in luvut
+                                  where l > 5
+                                  orderby l
+                                  select l).ToList();
+            foreach (int luku in tulokset)
+            {
+                Console.WriteLine(luku);
+            }
         }
 
         private static int LueLuku()
