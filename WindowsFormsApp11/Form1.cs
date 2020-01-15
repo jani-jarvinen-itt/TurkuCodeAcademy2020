@@ -59,6 +59,11 @@ namespace WindowsFormsApp11
 
             List<Customers> asiakkaat = kysely.ToList();
 
+            // jälkiprosessointi
+            List<Customers> aAlkuiset = (from a in asiakkaat
+                                         where a.CompanyName.StartsWith("A")
+                                         select a).ToList();
+
             dataGridView1.DataSource = asiakkaat;
         }
     }
