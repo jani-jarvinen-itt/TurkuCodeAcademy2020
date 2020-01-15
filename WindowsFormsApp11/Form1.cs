@@ -70,9 +70,11 @@ namespace WindowsFormsApp11
 
         private void button4_Click(object sender, EventArgs e)
         {
+            /*
             TilauksenSumma summa = new TilauksenSumma();
             decimal sum = summa.LaskeTilauksenSumma(10252);
             MessageBox.Show(sum.ToString());
+            */
         }
     }
 }

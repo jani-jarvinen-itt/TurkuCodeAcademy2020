@@ -7,10 +7,10 @@ using WindowsFormsApp11.Models;
 
 namespace WindowsFormsApp11.Logiikka
 {
-    interface ITilauksenSumma
+    public interface ITilauksenSumma
     {
         List<Order_Details> HaeTilauksenRivit(int tilausNro);
 
-        decimal LaskeTilauksenSumma(int tilausNro);
+        decimal LaskeTilauksenSumma(List<Order_Details> rivit);
     }
 }

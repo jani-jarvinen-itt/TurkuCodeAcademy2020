@@ -11,18 +11,17 @@ namespace WindowsFormsApp11.Logiikka
     {
         public List<Order_Details> HaeTilauksenRivit(int tilausNro)
         {
-            throw new NotImplementedException();
+            NorthwindEntities entities = new NorthwindEntities();
+            var tulokset = (from od in entities.Order_Details
+                            where od.OrderID == tilausNro
+                            select od).ToList();
+
+            return tulokset;
         }
 
-        public decimal LaskeTilauksenSumma(int tilausNro)
+        public decimal LaskeTilauksenSumma(List<Order_Details> rivit)
         {
-            NorthwindEntities entities = new NorthwindEntities();
-
-            decimal sum = (from od in entities.Order_Details
-                           where od.OrderID == tilausNro
-                           select od).Sum(
-                od => od.UnitPrice * od.Quantity);
-
+            decimal sum = rivit.Sum(od => od.UnitPrice * od.Quantity);
             return sum;
         }
     }
