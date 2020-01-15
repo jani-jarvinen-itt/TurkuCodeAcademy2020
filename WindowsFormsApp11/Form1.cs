@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp11.Logiikka;
 using WindowsFormsApp11.Models;
 
 namespace WindowsFormsApp11
@@ -65,6 +66,13 @@ namespace WindowsFormsApp11
                                          select a).ToList();
 
             dataGridView1.DataSource = asiakkaat;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            TilauksenSumma summa = new TilauksenSumma();
+            decimal sum = summa.LaskeTilauksenSumma(10252);
+            MessageBox.Show(sum.ToString());
         }
     }
 }
